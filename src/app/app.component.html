@@ -1,7 +1,23 @@
 <main>
-  <h1>Zoom WebSDK Sample Angular</h1>
+  <h1>Zoom Integration</h1>
 
-  <input type="text" name="meetingId" [(ngModel)]="meetingId" />
+  <h3>Token : {{ jwt }}</h3>
 
-  <button (click)="getSignature()">Join Meeting</button>
+  <div class="create">
+    <button (click)="createMeeting()">Crea riunione</button>
+
+    <input type="text" name="meetingId" [(ngModel)]="meetingId" readonly />
+  </div>
+
+  <div class="flex" *ngIf="joinUrl">
+    <span style="margin-left: 5px">Join url</span>
+
+    <a [href]="joinUrl" target="_blank">{{ joinUrl }}</a>
+  </div>
+  <div class="flex" *ngIf="startUrl">
+    <span style="margin-left: 5px">Start url</span>
+    <a [href]="startUrl" target="_blank">{{ startUrl }}</a>
+  </div>
+
+  <button (click)="getSignature()" [disabled]="!meetingId">Join Meeting</button>
 </main>
