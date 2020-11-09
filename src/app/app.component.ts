@@ -23,6 +23,8 @@ export class AppComponent implements OnInit {
   userEmail = '';
   passWord = 'dU8tEx';
 
+  meetingId: number;
+
   constructor(public httpClient: HttpClient, @Inject(DOCUMENT) document) {}
 
   ngOnInit() {}
